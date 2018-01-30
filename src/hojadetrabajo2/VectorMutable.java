@@ -35,4 +35,64 @@ public class VectorMutable<E>
     {
         array = new Object[capacidadInicial];
     }
+    
+    /**
+     * 
+     * @param element 
+     */
+    public void add(E element)
+    {
+        
+    }
+    
+    public void add(E element, int index)
+    {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+    
+    public E get(int index)
+    {
+        return null;
+    }
+    
+    public E remove(E element)
+    {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+    
+    /**
+     * 
+     * @param index
+     * @return 
+     */
+    public E remove(int index)
+    {
+        return null;
+    }
+    
+    /**
+     * 
+     * @return 
+     */
+    public boolean isEmpty()
+    {
+        return array.length == 0;
+    }
+    
+    /**
+     * 
+     * @return 
+     */
+    public int size()
+    {
+        return array.length;
+    }
+    
+    /**
+     * 
+     */
+    protected void adjustArray()
+    {
+        
+    }
 }
