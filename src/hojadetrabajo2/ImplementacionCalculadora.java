@@ -14,11 +14,13 @@ public class ImplementacionCalculadora implements CalculadoraI
     private final String ERROR_EXPRESION_INVALIDA = "ERROR: expresion invalida.";
     
     // para mientras terminamos la implementacion del stack
-    private java.util.Stack<Float> stack; 
+    //private java.util.Stack<Float> stack;
+    private Stack stack;
     
     public ImplementacionCalculadora()
     {
-        stack = new java.util.Stack<Float>();
+        //stack = new java.util.Stack<Float>();
+        stack = new ImplementacionStack();
     }
     
     @Override
