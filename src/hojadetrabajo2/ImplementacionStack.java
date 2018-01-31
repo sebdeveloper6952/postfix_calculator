@@ -1,7 +1,5 @@
 package hojadetrabajo2;
 
-import java.util.AbstractList;
-
 /**
  *
  * @author Sebastian Arriola 11463

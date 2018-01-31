@@ -40,6 +40,7 @@ public class VectorMutable<E>
         
     }
     
+    // este es extra
     public void add(E element, int index)
     {
         throw new UnsupportedOperationException("Not supported yet.");
@@ -71,7 +72,7 @@ public class VectorMutable<E>
      */
     public boolean isEmpty()
     {
-        return array.length == 0;
+        return false;
     }
     
     /**
@@ -80,13 +81,13 @@ public class VectorMutable<E>
      */
     public int size()
     {
-        return array.length;
+        return 0;
     }
     
     /**
      * 
      */
-    protected void adjustArray()
+    protected void adjustArray(int newCapacity)
     {
         
     }
