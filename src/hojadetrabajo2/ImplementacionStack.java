@@ -1,5 +1,7 @@
 package hojadetrabajo2;
 
+import java.util.AbstractList;
+
 /**
  *
  * @author Sebastian Arriola 11463
@@ -8,25 +10,36 @@ package hojadetrabajo2;
  */
 public class ImplementacionStack<E> implements Stack<E>
 {
-
+    protected VectorMutable vector;
+    
     @Override
-    public void push() {
+    public void push(E element) 
+    {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public E pop() {
+    public E pop() 
+    {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public E top() {
+    public E peek()
+    {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public boolean empty() {
+    public boolean empty() 
+    {
         throw new UnsupportedOperationException("Not supported yet.");
+    }
+    
+    @Override
+    public int size()
+    {
+        return vector.size();
     }
     
 }

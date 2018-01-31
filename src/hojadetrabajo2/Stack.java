@@ -11,20 +11,29 @@ public interface Stack<E>
     /**
      * 
      */
-    public void push();
+    public void push(E element);
+    
     /**
      * 
      * @return 
      */
     public E pop();
+    
     /**
      * 
      * @return 
      */
-    public E top();
+    public E peek();
+    
     /**
      * 
      * @return 
      */
     public boolean empty();
+    
+    /**
+     * 
+     * @return 
+     */
+    public int size();
 }

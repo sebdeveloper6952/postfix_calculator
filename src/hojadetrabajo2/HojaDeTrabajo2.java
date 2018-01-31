@@ -1,6 +1,5 @@
 package hojadetrabajo2;
 
-import java.io.*;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -20,24 +19,51 @@ public class HojaDeTrabajo2
      */
     public static void main(String[] args) 
     {
-        // leer archivo de texto, posicionar cada linea del archivo en una celda
-        // de un arreglo
-        String path = "D:\\UVG\\2018_S1\\Estructuras_Algoritmos\\S3_29ENE_2FEB\\HojaDeTrabajo2\\datos.txt";
-        List<String> lineas = leerArchivoDeTexto(path);
-        if(lineas == null)
+        // el arreglo args contiene uno o mas archivos validos para leer
+        if(args.length > 0)
         {
-            System.out.println("Archivo nulo.");
-            return;
+            for(String file : args)
+            {
+                // leer archivo de texto, posicionar cada linea del archivo en una celda
+                // de un arreglo
+                List<String> lineas = leerArchivoDeTexto(file);
+                if(lineas == null)
+                {
+                    System.out.println("No se encontro el archivo " + file);
+                    return;
+                }
+
+                // instanciar calculadora
+                CalculadoraI calcu = new ImplementacionCalculadora();
+                for(String linea : lineas)
+                    System.out.println("Resultado de: " + linea + " -> " +calcu.calcular(linea));
+            }
         }
+        // leer el archivo src/datos.txt
+        else
+        {
+            // leer archivo de texto, posicionar cada linea del archivo en una celda
+            // de un arreglo
+            String path = "src/datos.txt";
+            List<String> lineas = leerArchivoDeTexto(path);
+            if(lineas == null)
+            {
+                System.out.println("No se encontro el archivo datos.txt.");
+                return;
+            }
         
-        // instanciar calculadora
-        //CalculadoraI calcu = new 
+            // instanciar calculadora
+            CalculadoraI calcu = new ImplementacionCalculadora();
+            for(String linea : lineas)
+                System.out.println("Resultado de: " + linea + " -> " +calcu.calcular(linea));
+        }
     }
     
     /**
-     * 
-     * @param path
-     * @return 
+     * Devuelve una lista que contiene cada linea del archivo de texto ubicado
+     * en path.
+     * @param path la ubicacion del archivo de texto para leer
+     * @return lista que contiene las lineas del archivo.
      */
     public static List<String> leerArchivoDeTexto(String path)
     {
