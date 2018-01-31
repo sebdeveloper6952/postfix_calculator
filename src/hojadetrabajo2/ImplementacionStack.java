@@ -33,7 +33,7 @@ public class ImplementacionStack<E> implements Stack<E>
     @Override
     public boolean empty() 
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return vector.isEmpty();
     }
     
     @Override
