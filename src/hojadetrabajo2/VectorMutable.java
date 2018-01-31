@@ -13,6 +13,7 @@ package hojadetrabajo2;
 public class VectorMutable<E>
 {
     protected Object[] array;
+    protected int posicion;
     
     /**
      * 
@@ -37,10 +38,10 @@ public class VectorMutable<E>
      */
     public void add(E element)
     {
+        array[posicion++] = element;
         
     }
     
-    // este es extra
     public void add(E element, int index)
     {
         throw new UnsupportedOperationException("Not supported yet.");
@@ -48,9 +49,10 @@ public class VectorMutable<E>
     
     public E get(int index)
     {
-        return null;
+        return (E)array[index];
     }
     
+    // EXTRA
     public E remove(E element)
     {
         throw new UnsupportedOperationException("Not supported yet.");
@@ -63,7 +65,13 @@ public class VectorMutable<E>
      */
     public E remove(int index)
     {
-        return null;
+        E temp = (E)array[index];
+        for (int i = index; i < posicion; i++)
+        {
+            array[i] = array[i+1];
+        }
+        array[posicion--] = null;
+        return temp;
     }
     
     /**
@@ -72,7 +80,11 @@ public class VectorMutable<E>
      */
     public boolean isEmpty()
     {
-        return false;
+        if(posicion == 0)
+        {
+            return true;
+        }
+        else return false;
     }
     
     /**
@@ -81,7 +93,7 @@ public class VectorMutable<E>
      */
     public int size()
     {
-        return 0;
+        return posicion;
     }
     
     /**
@@ -89,6 +101,14 @@ public class VectorMutable<E>
      */
     protected void adjustArray(int newCapacity)
     {
-        
+        if(newCapacity > array.length)
+        {
+            Object[] nuevoArray = new Object[newCapacity*2];
+            for(int i = 0; i < array.length; i++)
+            {
+                nuevoArray[i] = array[i];
+            }
+            array = nuevoArray;
+        }
     }
 }
