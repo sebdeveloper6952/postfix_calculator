@@ -15,7 +15,7 @@ public class ImplementacionCalculadora implements CalculadoraI
     
     // para mientras terminamos la implementacion del stack
     //private java.util.Stack<Float> stack;
-    private Stack stack;
+    private Stack<Float> stack;
     
     public ImplementacionCalculadora()
     {
