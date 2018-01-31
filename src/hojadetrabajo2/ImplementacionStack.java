@@ -11,35 +11,54 @@ import java.util.AbstractList;
 public class ImplementacionStack<E> implements Stack<E>
 {
     protected VectorMutable vector;
+    protected int cont;
+    public ImplementacionStack(){
+        
+        vector = new VectorMutable();
+    }
     
     @Override
     public void push(E element) 
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+       vector.add(element);
+       cont++;    
     }
 
     @Override
     public E pop() 
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+       if (cont ==0 )
+           throw new IllegalStateException("Esta vacio el stack");
+       E elementos = (E)vector.remove(cont);
+       cont--;
+       return elementos;
     }
 
     @Override
     public E peek()
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+       if (cont ==0 )
+           throw new IllegalStateException("Esta vacio el stack");
+       E elementos = (E)vector.get(cont);
+       return elementos;
     }
 
     @Override
     public boolean empty() 
     {
-        return vector.isEmpty();
-    }
+        if (cont == 0)
+            return true;
+        
+        return false;
+        
+        
+    }    
+       
     
     @Override
     public int size()
     {
-        return vector.size();
+       return cont;
     }
     
 }
