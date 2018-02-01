@@ -13,7 +13,6 @@ import java.util.List;
  */
 public class HojaDeTrabajo2 
 {
-
     /**
      * @param args the command line arguments
      */

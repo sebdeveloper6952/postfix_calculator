@@ -8,25 +8,39 @@ package hojadetrabajo2;
  */
 public class ImplementacionCalculadora implements CalculadoraI
 {
+    /**
+     * Mensaje de error que se muestra cuando la expresion contiene un caracter invalido.
+     */
     private final String ERROR_CARACTER_INVALIDO = "ERROR: la expresion contiene un caracter invalido.";
+    /**
+     * Mensaje de error que se muestra cuando la expresion contiene operandos insuficientes.
+     */
     private final String ERROR_OPERANDOS_INSUFICIENTES = "ERROR: operandos insuficientes.";
+    /**
+     * Mensaje de error que se muestra cuando se trata de hacer una division por cero.
+     */
     private final String ERROR_DIVISION_POR_CERO = "ERROR: divison por cero detectada.";
+    /**
+     * Mensaje de error que se muestra cuando la expresion es invalida.
+     */
     private final String ERROR_EXPRESION_INVALIDA = "ERROR: expresion invalida.";
     
-    // para mientras terminamos la implementacion del stack
-    //private java.util.Stack<Float> stack;
     private Stack<Float> stack;
     
+    /**
+     * Regresa una instancia de ImplementacionCalculadora.
+     */
     public ImplementacionCalculadora()
     {
-        //stack = new java.util.Stack<Float>();
         stack = new ImplementacionStack();
     }
     
     /**
-     * 
-     * @param expresion
-     * @return 
+     * Procesa la expresion caracter por caracter e intenta evaluarla. Si la
+     * expresion es valida, regresa el resultado, de lo contrario se regresa
+     * un mensaje de error.
+     * @param expresion La expresion que se desea evaluar.
+     * @return Resultado de la expresion, o un mensaje de error.
      */
     @Override
     public String calcular(String expresion)
@@ -88,21 +102,47 @@ public class ImplementacionCalculadora implements CalculadoraI
         return result;
     }
     
+    /**
+     * Operacion binaria de suma.
+     * @param o1 Operando 1.
+     * @param o2 Operando 2.
+     * @return Resultado de la operacion suma aplicada a ambos operandos.
+     */
     private Float suma(Float o1, Float o2)
     {
         return o1 + o2;
     }
     
+    /**
+     * Operacion binaria de resta.
+     * @param o1 Operando 1.
+     * @param o2 Operando 2.
+     * @return Resultado de la operacion resta aplicada a ambos operandos.
+     */
     private Float resta(Float o1, Float o2)
     {
         return o1 - o2;
     }
     
+    /**
+     * Operacion binaria de multiplicacion.
+     * @param o1 Operando 1.
+     * @param o2 Operando 2.
+     * @return Resultado de la operacion multiplicacion aplicada a ambos
+     * operandos.
+     */
     private Float multiplicacion(Float o1, Float o2)
     {
         return o1 * o2;
     }
     
+    /**
+     * Operacion binaria de division.
+     * @param o1 Operando 1.
+     * @param o2 Operando 2.
+     * @return Resultado de la operacion division aplicada a ambos operandos.
+     * @throws IllegalArgumentException 
+     */
     private Float division(Float o1, Float o2)
             throws IllegalArgumentException
     {
