@@ -12,7 +12,8 @@ public class ImplementacionStack<E> implements Stack<E>
     protected int cont;
     public ImplementacionStack(){
         
-        vector = new VectorMutable();
+        vector = new VectorMutable(2);
+        cont = 0;
     }
     
     @Override
@@ -25,9 +26,9 @@ public class ImplementacionStack<E> implements Stack<E>
     @Override
     public E pop() 
     {
-       if (cont ==0 )
+       if (cont == 0)
            throw new IllegalStateException("Esta vacio el stack");
-       E elementos = (E)vector.remove(cont);
+       E elementos = (E)vector.remove(cont-1);
        cont--;
        return elementos;
     }

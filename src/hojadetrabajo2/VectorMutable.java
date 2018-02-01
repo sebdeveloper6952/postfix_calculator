@@ -16,7 +16,7 @@ public class VectorMutable<E>
     protected int posicion;
     
     /**
-     * 
+     * Constructor de un vector con tamaño fijo de 10 elementos.
      */
     public VectorMutable()
     {
@@ -24,8 +24,8 @@ public class VectorMutable<E>
     }
     
     /**
-     * 
-     * @param capacidadInicial 
+     * Constructor de un vector con un tamaño indicado por el usuario.
+     * @param capacidadInicial tamaño del vector 
      */
     public VectorMutable(int capacidadInicial)
     {
@@ -33,44 +33,47 @@ public class VectorMutable<E>
     }
     
     /**
-     * 
-     * @param element 
+     * Agrega un elemento al vector. De ser necesario, se agranda el tamaño
+     * del vector para que los elementos quepan
+     * @param element el elemento a agregar al vector
      */
     public void add(E element)
     {
+        adjustArray(posicion+1);
         array[posicion++] = element;
-        
     }
     
-    public void add(E element, int index)
-    {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-    
+    /**
+     * Metodo que lee el valor que este en la posicion indicada
+     * @param index posicion del elemento dentro del array
+     * @return el elemento deseado.
+     */  
     public E get(int index)
     {
         return (E)array[index];
     }
     
-    // EXTRA
-    public E remove(E element)
-    {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-    
     /**
-     * 
-     * @param index
-     * @return 
-     */
+    * 
+    * @param index
+    * @return 
+    */
     public E remove(int index)
     {
         E temp = (E)array[index];
-        for (int i = index; i < posicion; i++)
+        if(posicion < array.length)
         {
-            array[i] = array[i+1];
+            for (int i = index; i < posicion; i++)
+            {
+                array[i] = array[i+1];
+            }
+            array[posicion--] = null;
         }
-        array[posicion--] = null;
+        else
+        {
+            array[posicion-1] = null;
+            posicion--;
+        }
         return temp;
     }
     

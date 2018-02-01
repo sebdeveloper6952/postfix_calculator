@@ -23,6 +23,11 @@ public class ImplementacionCalculadora implements CalculadoraI
         stack = new ImplementacionStack();
     }
     
+    /**
+     * 
+     * @param expresion
+     * @return 
+     */
     @Override
     public String calcular(String expresion)
     {
