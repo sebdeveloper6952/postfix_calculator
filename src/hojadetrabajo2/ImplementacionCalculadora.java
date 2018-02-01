@@ -19,7 +19,7 @@ public class ImplementacionCalculadora implements CalculadoraI
     /**
      * Mensaje de error que se muestra cuando se trata de hacer una division por cero.
      */
-    private final String ERROR_DIVISION_POR_CERO = "ERROR: divison por cero detectada.";
+    private final String ERROR_DIVISION_POR_CERO = "ERROR: division por cero detectada.";
     /**
      * Mensaje de error que se muestra cuando la expresion es invalida.
      */
