@@ -31,6 +31,7 @@ public interface Stack<E>
      */
     public boolean empty();
     
+    
     /**
      * 
      * @return 

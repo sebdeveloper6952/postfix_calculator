@@ -13,13 +13,14 @@ public class ImplementacionCalculadora implements CalculadoraI
     private final String ERROR_DIVISION_POR_CERO = "ERROR: divison por cero detectada.";
     private final String ERROR_EXPRESION_INVALIDA = "ERROR: expresion invalida.";
     
-    //private Stack<Integer> stack;
-    private java.util.Stack<Integer> stack; // para mientras terminamos la implementacion del 
+    // para mientras terminamos la implementacion del stack
+    //private java.util.Stack<Float> stack;
+    private Stack<Float> stack;
     
     public ImplementacionCalculadora()
     {
-        //stack = new ImplementacionStack<>();
-        stack = new java.util.Stack<Integer>();
+        //stack = new java.util.Stack<Float>();
+        stack = new ImplementacionStack();
     }
     
     @Override
@@ -32,7 +33,7 @@ public class ImplementacionCalculadora implements CalculadoraI
             if(c == ' ') continue; // no se procesan los espacios
             else if(c >= '0' && c <= '9') // el caracter es un digito
             {
-                stack.push(Integer.valueOf(String.valueOf(c)));
+                stack.push(Float.parseFloat(String.valueOf(c)));
             }
             // el caracter debe ser un operando, de lo contrario, es un caracter invalido
             else
@@ -40,35 +41,31 @@ public class ImplementacionCalculadora implements CalculadoraI
                 // revisar si hay al menos dos operandos en el stack
                 if(stack.size() > 1)
                 {
-                    Integer o1 = stack.pop();
-                    Integer o2 = stack.pop();
-                    if(c == '+')
+                    Float o1 = stack.pop();
+                    Float o2 = stack.pop();
+                    switch(c)
                     {
-                        stack.push(suma(o1, o2));
-                    }
-                    else if(c == '-')
-                    {
-                        stack.push(resta(o1,o2));
-                    }
-                    else if(c == '*')
-                    {
-                        stack.push(multiplicacion(o1, o2));
-                    }
-                    else if(c == '/')
-                    {
-                        try
-                        {
-                            stack.push(division(o1, o2));
-                        }
-                        catch(IllegalArgumentException e)
-                        {
-                            return ERROR_DIVISION_POR_CERO;
-                        }
-                    }
-                    else
-                    {
-                        // caracter invalido
-                        return ERROR_CARACTER_INVALIDO;
+                        case '+':
+                            stack.push(suma(o1, o2));
+                            break;
+                        case '-':
+                            stack.push(resta(o1,o2));
+                            break;
+                        case '*':
+                            stack.push(multiplicacion(o1,o2));
+                            break;
+                        case '/':
+                            try
+                            {
+                                stack.push(division(o1,o2));
+                            }
+                            catch(IllegalArgumentException e)
+                            {
+                                return ERROR_DIVISION_POR_CERO;
+                            }
+                            break;
+                        default:
+                            return ERROR_CARACTER_INVALIDO;
                     }
                 }
                 else
@@ -86,22 +83,22 @@ public class ImplementacionCalculadora implements CalculadoraI
         return result;
     }
     
-    private Integer suma(Integer o1, Integer o2)
+    private Float suma(Float o1, Float o2)
     {
         return o1 + o2;
     }
     
-    private Integer resta(Integer o1, Integer o2)
+    private Float resta(Float o1, Float o2)
     {
         return o1 - o2;
     }
     
-    private Integer multiplicacion(Integer o1, Integer o2)
+    private Float multiplicacion(Float o1, Float o2)
     {
         return o1 * o2;
     }
     
-    private Integer division(Integer o1, Integer o2)
+    private Float division(Float o1, Float o2)
             throws IllegalArgumentException
     {
         if(o2 == 0) throw new IllegalArgumentException(
