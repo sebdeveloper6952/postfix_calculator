@@ -10,9 +10,17 @@ package hojadetrabajo2;
  * espacio, el vector crece o se acorta. Es una clase con un tipo generico,
  * el cual se define en el momento de instanciar.
  */
+
 public class VectorMutable<E>
 {
+    /**
+     * Arreglo que el vector usa para guardar elementos
+     */
     protected Object[] array;
+    
+    /**
+     * variable que apunta a la primera posicion valida del vector
+     */
     protected int posicion;
     
     /**
@@ -54,9 +62,12 @@ public class VectorMutable<E>
     }
     
     /**
-    * 
-    * @param index
-    * @return 
+    * Este metodo guarda el elemento en la posicion indicada en una variable 
+    * temporal para poder sobreescribirlo despues. Luego mueve todos los 
+    * elementos del array una posicion a la izquierda para "llenar el espacio 
+    * vacio" que quedo en el array.
+    * @param index posicion del elemento que se quiere eliminar del array
+    * @return el elemento que se elimino del array
     */
     public E remove(int index)
     {
@@ -78,8 +89,8 @@ public class VectorMutable<E>
     }
     
     /**
-     * 
-     * @return 
+     * Metodo que verifica si el array no tiene ningun elemento 
+     * @return Regresa true si el array esta vacio, y false en el caso contrario
      */
     public boolean isEmpty()
     {
@@ -91,8 +102,8 @@ public class VectorMutable<E>
     }
     
     /**
-     * 
-     * @return 
+     * Metodo que indica cuantos elementos tiene el vector
+     * @return el tamaño del vector
      */
     public int size()
     {
@@ -100,7 +111,10 @@ public class VectorMutable<E>
     }
     
     /**
-     * 
+     * Metodo que duplica el tamaño del vector si este esta lleno, y se quiere
+     * agregar un nuevo elemento
+     * @param newCapacity cantidad de elementos que se quiere asegurar que 
+     * quepan en el vector
      */
     protected void adjustArray(int newCapacity)
     {
