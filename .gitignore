@@ -5,3 +5,9 @@ dist/
 nbdist/
 .nb-gradle/
 *.class
+nbproject/private/private.xml
+*.class
+build/classes/hojadetrabajo2/ImplementacionStack.class
+build/classes/hojadetrabajo2/ImplementacionStack.class
+*.xml
+*.properties

@@ -8,14 +8,32 @@ package hojadetrabajo2;
  */
 public class ImplementacionStack<E> implements Stack<E>
 {
+    
+    /**
+    * Declaracion de la variable vector de tipo vector mutable para la clase 
+    * ImplementacionStack
+    */
     protected VectorMutable vector;
+    
+    /**
+    * Declaracion de la variable cont de tipo entero  para la clase 
+    * ImplementacionStack
+    */
     protected int cont;
+    
+    /**
+     * constructor para la clase ImplementacionStack
+     */
     public ImplementacionStack(){
         
-        vector = new VectorMutable(2);
+        vector = new VectorMutable();
         cont = 0;
     }
     
+    /**
+     * metodo push que agrega un elemento al stack 
+     * @param element 
+     */
     @Override
     public void push(E element) 
     {
@@ -23,6 +41,11 @@ public class ImplementacionStack<E> implements Stack<E>
        cont++;    
     }
 
+    /**
+     * metodo pop el cual quita el ultimo elemento del stack y 
+     * regresa ese mismo valor 
+     * @return 
+     */
     @Override
     public E pop() 
     {
@@ -33,6 +56,11 @@ public class ImplementacionStack<E> implements Stack<E>
        return elementos;
     }
 
+    /**
+     * metodo peek el cual revisa la ultima entrada del stack y devuelve el
+     * valor 
+     * @return 
+     */
     @Override
     public E peek()
     {
@@ -42,6 +70,12 @@ public class ImplementacionStack<E> implements Stack<E>
        return elementos;
     }
 
+    /**
+     * metodo empty que revisa si el stack esta vecio, devolvienco true 
+     * si la variable contador es igual a 0, de lo contrario de vuelve
+     * false 
+     * @return 
+     */
     @Override
     public boolean empty() 
     {
@@ -53,7 +87,12 @@ public class ImplementacionStack<E> implements Stack<E>
         
     }    
        
-    
+    /**
+     * regresa el valor de la variable contador la cual es la cantidad
+     * actual de los elementoz del stack 
+     * 
+     * @return 
+     */
     @Override
     public int size()
     {
