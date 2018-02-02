@@ -66,7 +66,7 @@ public class ImplementacionStack<E> implements Stack<E>
     {
        if (cont ==0 )
            throw new IllegalStateException("Esta vacio el stack");
-       E elementos = (E)vector.get(cont);
+       E elementos = (E)vector.get(cont-1);
        return elementos;
     }
 
